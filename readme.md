@@ -127,3 +127,10 @@ g.V().hasLabel('Entity').as('e')
   .groupCount().by(select('e'))
   .order(local).by(values, desc)
 ```
+
+
+## 10. Find Cycles in Graph
+
+```gremlin
+g.V().hasLabel('Entity').repeat(.out().simplePath()).until(.loops().is(gte(1)).where(.in().hasLabel('Entity'))).path()
+```
