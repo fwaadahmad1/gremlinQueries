@@ -111,16 +111,6 @@ g.V().hasLabel('Address').as('a')
   .order(local).by(values, desc)
 ```
 
-## 9. Find Entities Associated with High-Risk Jurisdictions
-
-Identify entities that are linked to high-risk jurisdictions, which could be indicative of tax havens or regions with lax regulations.
-
-```gremlin
-g.V().hasLabel('Entity').as('e')
-  .has('n.jurisdiction', within(['High-Risk-Jurisdiction1', 'High-Risk-Jurisdiction2'])) // Example jurisdictions
-  .select('e')
-  .by('n.name')
-```
 
 ## 10. Detect Entities with Short-Term Intermediaries
 
