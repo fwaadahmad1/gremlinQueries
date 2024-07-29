@@ -132,5 +132,9 @@ g.V().hasLabel('Entity').as('e')
 ## 10. Find Cycles in Graph
 
 ```gremlin
-g.V().hasLabel('Entity').repeat(.out().simplePath()).until(.loops().is(gte(1)).where(.in().hasLabel('Entity'))).path()
+g.V().hasLabel('Entity')
+  .repeat(.out().simplePath())
+  .until(.loops().is(gte(1))
+  .where(.in().hasLabel('Entity')))
+  .path()
 ```
